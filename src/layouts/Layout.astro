@@ -32,11 +32,10 @@ const {
   </head>
   <body class="text-teal-900 antialiased">
     <!-- Sticky nav -->
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-teal-100/80" style="background: rgba(240,250,248,0.88);">
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-teal-300/70" style="background: rgba(240,250,248,0.88);">
       <div class="max-w-4xl mx-auto px-6 py-2 flex justify-center items-center gap-8">
-        <a href="#hero" class="nav-link">Home</a>
-        <a href="#hero" class="nav-logo">
-          <img src="/logo.png" alt="SS" width="40" height="40" style="object-fit: contain;" />
+        <a href="#hero" class="nav-logo" title="Home">
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Home" width="40" height="40" style="object-fit: contain;" />
         </a>
         <a href="#schedule" class="nav-link">Schedule</a>
         <a href="#venue" class="nav-link">Venue</a>
