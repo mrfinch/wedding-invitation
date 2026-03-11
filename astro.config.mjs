@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://mrfinch.github.io',
-  base: '/wedding-invitation',
+  base: '/wedding-invitation/',
   vite: {
     plugins: [tailwindcss()]
   }
