@@ -10,7 +10,8 @@ const venue = {
 };
 ---
 
-<section id="venue" class="py-24 px-6" style="background: #f0faf8;">
+<section id="venue" class="relative py-24 px-6" style="background: #f0faf8;">
+  <img src="/logo.png" alt="" aria-hidden="true" class="logo-watermark" />
   <div class="max-w-3xl mx-auto">
     <!-- Section header -->
     <div class="text-center mb-14">
@@ -160,5 +161,17 @@ const venue = {
     height: 320px;
     border: 1px solid #c8e8e4;
     overflow: hidden;
+  }
+
+  .logo-watermark {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
   }
 </style>

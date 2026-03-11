@@ -45,7 +45,8 @@ const days = [
 ];
 ---
 
-<section id="schedule" class="py-24 px-6" style="background: #f8fdfc;">
+<section id="schedule" class="relative py-24 px-6" style="background: #f8fdfc;">
+  <img src="/logo.png" alt="" aria-hidden="true" class="logo-watermark" />
   <div class="max-w-2xl mx-auto">
     <!-- Section header -->
     <div class="text-center mb-16">
@@ -204,5 +205,17 @@ const days = [
     font-size: 0.9rem;
     color: #527a75;
     line-height: 1.6;
+  }
+
+  .logo-watermark {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
   }
 </style>

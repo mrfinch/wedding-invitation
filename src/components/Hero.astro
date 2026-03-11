@@ -8,11 +8,10 @@ const weddingCity = "Ahmedabad, India";
 
 <section
   id="hero"
-  class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
+  class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
 >
-  <!-- Logo -->
-  <img src="/logo.png" alt="SS monogram" class="logo" />
-
+  <!-- Watermark logo -->
+  <img src="/logo.png" alt="" aria-hidden="true" class="logo-watermark" />
   <!-- Decorative top line -->
   <div class="flex items-center gap-4 mb-10">
     <span class="divider-line"></span>
@@ -26,6 +25,7 @@ const weddingCity = "Ahmedabad, India";
     <span class="ampersand">&amp;</span>
     <span>{groom}</span>
   </h1>
+
 
   <!-- Tagline -->
   <p class="tagline">request the pleasure of your company</p>
@@ -179,12 +179,16 @@ const weddingCity = "Ahmedabad, India";
     margin-bottom: 1rem;
   }
 
-  .logo {
-    width: 120px;
-    height: 120px;
+  .logo-watermark {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
-    margin-bottom: 2rem;
-    mix-blend-mode: multiply;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
   }
 
   .scroll-hint {
