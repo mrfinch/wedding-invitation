@@ -1,14 +1,12 @@
 ---
-// Replace with real venue details
 const venue = {
-  name: "TBD",
-  subtitle: "Ahmedabad, Gujarat",
-  address: "Address to be updated",
-  city: "Ahmedabad, Gujarat",
-  mapsQuery: "Ahmedabad+Gujarat",
-  // Paste a real Google Maps embed src URL here
-  mapsEmbedSrc: `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.9!2d72.4346!3d23.0225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000`,
-  directions: "More details on travel and parking will be shared closer to the date.",
+  name: "Hotel Pragati The Grand",
+  subtitle: "Near Zydus Hospital, Thaltej",
+  address: "Hebatpur Rd, Thaltej",
+  city: "Ahmedabad, Gujarat 380059",
+  mapsUrl: "https://maps.app.goo.gl/hSwpSPnZZsvMrYHy7",
+  mapsEmbedSrc: `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.5!2d72.5131277!3d23.0590913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9ca91b593fe5%3A0x9c1641919621a039!2sHOTEL%20PRAGATI%20THE%20GRAND!5e0!3m2!1sen!2sin!4v1741700000000`,
+  directions: "Near Zydus Hospital, Thaltej. Ample parking available on premises.",
 };
 ---
 
@@ -32,10 +30,8 @@ const venue = {
           <p>{venue.city}</p>
         </div>
 
-        <p class="venue-directions">{venue.directions}</p>
-
         <a
-          href={`https://www.google.com/maps/search/${venue.mapsQuery}`}
+          href={venue.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="directions-btn"
@@ -68,7 +64,7 @@ const venue = {
     font-size: 0.7rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #3d8b85;
+    color: #1a3a36;
     margin-bottom: 0.5rem;
   }
 
@@ -117,7 +113,7 @@ const venue = {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 0.85rem;
-    color: #3d8b85;
+    color: #1a3a36;
     letter-spacing: 0.05em;
     margin-top: 0.25rem;
     margin-bottom: 1.25rem;
@@ -143,20 +139,21 @@ const venue = {
   .directions-btn {
     display: inline-block;
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #3d8b85;
+    color: #fff;
+    background: #3d8b85;
     border: 1px solid #3d8b85;
     padding: 0.6rem 1.4rem;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, border-color 0.2s;
   }
 
   .directions-btn:hover {
-    background: #3d8b85;
-    color: #fff;
+    background: #2e6e69;
+    border-color: #2e6e69;
   }
 
   .map-wrapper {
