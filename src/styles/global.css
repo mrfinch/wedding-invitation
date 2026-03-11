@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Base typography */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background: linear-gradient(160deg, #f0faf8 0%, #e8f5f1 60%, #edf7f4 100%);
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}

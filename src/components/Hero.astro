@@ -1,0 +1,200 @@
+---
+const bride = "Sakshi";
+const groom = "Saurabh";
+const weddingDate = new Date("2026-04-25T19:00:00");
+const weddingDateFormatted = "April 25, 2026";
+const weddingCity = "Ahmedabad, India";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
+>
+  <!-- Logo -->
+  <img src="/logo.png" alt="SS monogram" class="logo" />
+
+  <!-- Decorative top line -->
+  <div class="flex items-center gap-4 mb-10">
+    <span class="divider-line"></span>
+    <span class="small-caps">Together with their families</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- Names -->
+  <h1 class="names">
+    <span>{bride}</span>
+    <span class="ampersand">&amp;</span>
+    <span>{groom}</span>
+  </h1>
+
+  <!-- Tagline -->
+  <p class="tagline">request the pleasure of your company</p>
+  <p class="tagline italic">at the celebration of their marriage</p>
+
+  <!-- Date & location -->
+  <div class="mt-10 flex items-center gap-4">
+    <span class="divider-line"></span>
+    <div class="date-block">
+      <p class="date-main">{weddingDateFormatted}</p>
+      <p class="date-sub">{weddingCity}</p>
+    </div>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- Countdown -->
+  <div id="countdown" class="countdown-grid mt-12">
+    <div class="countdown-item"><span id="days">--</span><label>Days</label></div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item"><span id="hours">--</span><label>Hours</label></div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item"><span id="minutes">--</span><label>Minutes</label></div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item"><span id="seconds">--</span><label>Seconds</label></div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="mt-16 scroll-hint">&#8595;</div>
+</section>
+
+<script define:vars={{ weddingDate: weddingDate.toISOString() }}>
+  const target = new Date(weddingDate).getTime();
+
+  function tick() {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "<p class='text-lg'>Today is the day! 🎉</p>";
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById("days").textContent = String(d).padStart(2, "0");
+    document.getElementById("hours").textContent = String(h).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(m).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(s).padStart(2, "0");
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+
+<style>
+  .names {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 1.1;
+    color: #1a3a36;
+    display: flex;
+    align-items: baseline;
+    gap: 0.3em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ampersand {
+    font-style: italic;
+    color: #3d8b85;
+    font-size: 0.8em;
+  }
+
+  .tagline {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: #527a75;
+    margin-top: 0.5rem;
+  }
+
+  .small-caps {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3d8b85;
+  }
+
+  .divider-line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #b8ddd9;
+  }
+
+  .date-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #1a3a36;
+  }
+
+  .date-sub {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3d8b85;
+    margin-top: 0.25rem;
+  }
+
+  .countdown-grid {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 56px;
+  }
+
+  .countdown-item span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #3d8b85;
+    line-height: 1;
+  }
+
+  .countdown-item label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #89bab5;
+    margin-top: 0.25rem;
+  }
+
+  .countdown-sep {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #b8ddd9;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    mix-blend-mode: multiply;
+  }
+
+  .scroll-hint {
+    font-size: 1.2rem;
+    color: #b8ddd9;
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+</style>

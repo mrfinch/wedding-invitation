@@ -1,0 +1,148 @@
+---
+const events = [
+  {
+    time: "6:00 PM",
+    title: "Guest Arrival & Welcome",
+    description: "Guests are welcomed with refreshments and a chance to mingle.",
+    icon: "✦",
+  },
+  {
+    time: "7:00 PM",
+    title: "Wedding Ceremony",
+    description: "The sacred exchange of vows under the mandap.",
+    icon: "♥",
+  },
+  {
+    time: "8:00 PM",
+    title: "Cocktail Hour",
+    description: "Drinks, canapés, and celebrating with the newlyweds.",
+    icon: "✦",
+  },
+  {
+    time: "9:00 PM",
+    title: "Dinner Reception",
+    description: "A lavish dinner followed by speeches and toasts.",
+    icon: "✦",
+  },
+  {
+    time: "10:30 PM",
+    title: "Dancing & Celebration",
+    description: "Music, dancing, and memories that will last a lifetime.",
+    icon: "♪",
+  },
+];
+---
+
+<section id="schedule" class="py-24 px-6" style="background: #f8fdfc;">
+  <div class="max-w-2xl mx-auto">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="section-eyebrow">The Day</p>
+      <h2 class="section-title">Schedule</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- Timeline -->
+    <ol class="timeline">
+      {events.map((event, i) => (
+        <li class="timeline-item">
+          <div class="timeline-icon">{event.icon}</div>
+          <div class="timeline-body">
+            <p class="event-time">{event.time}</p>
+            <h3 class="event-title">{event.title}</h3>
+            <p class="event-desc">{event.description}</p>
+          </div>
+          {i < events.length - 1 && <div class="timeline-connector" />}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .section-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #3d8b85;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: #1a3a36;
+  }
+
+  .section-rule {
+    width: 48px;
+    height: 1px;
+    background: #3d8b85;
+    margin: 1.25rem auto 0;
+  }
+
+  .timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 1.5rem;
+    position: relative;
+    padding-bottom: 0;
+  }
+
+  .timeline-icon {
+    font-size: 0.9rem;
+    color: #3d8b85;
+    text-align: center;
+    padding-top: 0.15rem;
+    z-index: 1;
+  }
+
+  .timeline-body {
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-connector {
+    position: absolute;
+    left: 19px;
+    top: 1.5rem;
+    bottom: 0;
+    width: 1px;
+    background: #c8e8e4;
+  }
+
+  .event-time {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3d8b85;
+    margin-bottom: 0.25rem;
+  }
+
+  .event-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #1a3a36;
+    margin-bottom: 0.4rem;
+  }
+
+  .event-desc {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #527a75;
+    line-height: 1.6;
+  }
+</style>

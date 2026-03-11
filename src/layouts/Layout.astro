@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Sakshi & Saurabh — Getting Married!",
+  description = "Join us to celebrate the wedding of Sakshi and Saurabh on April 25, 2026 in Ahmedabad."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Google Fonts: Cormorant Garamond (elegant serif) + Lato (clean sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="text-teal-900 antialiased">
+    <!-- Sticky nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-teal-100/80" style="background: rgba(240,250,248,0.88);">
+      <div class="max-w-4xl mx-auto px-6 py-2 flex justify-center items-center gap-8">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#hero" class="nav-logo">
+          <img src="/logo.png" alt="SS" width="40" height="40" style="object-fit: contain;" />
+        </a>
+        <a href="#schedule" class="nav-link">Schedule</a>
+        <a href="#venue" class="nav-link">Venue</a>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="text-center py-10 text-sm" style="font-family: 'Lato', sans-serif; font-weight: 300; color: #89bab5;">
+      Made with love &hearts; — April 25, 2026
+    </footer>
+  </body>
+</html>
+
+<style>
+  .nav-link {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1a3a36;
+    text-decoration: none;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .nav-link:hover {
+    border-color: #3d8b85;
+    color: #3d8b85;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    mix-blend-mode: multiply;
+  }
+  .nav-logo:hover {
+    opacity: 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
