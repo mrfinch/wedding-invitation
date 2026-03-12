@@ -11,3 +11,36 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  nav {
+    display: none;
+  }
+
+  @page {
+    margin: 1cm;
+  }
+
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Tighten Schedule section header for print */
+  #schedule .mb-16 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  #venue {
+    break-before: page;
+  }
+
+  #countdown {
+    display: none;
+  }
+}

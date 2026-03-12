@@ -218,4 +218,16 @@ const days = [
     pointer-events: none;
     user-select: none;
   }
+
+  @media print {
+    .days-wrapper {
+      gap: 1.5rem;
+    }
+    .day-header {
+      margin-bottom: 1rem;
+    }
+    .timeline-body {
+      padding-bottom: 1rem;
+    }
+  }
 </style>
