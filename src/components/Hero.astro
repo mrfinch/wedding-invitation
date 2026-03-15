@@ -19,16 +19,21 @@ const weddingCity = "Ahmedabad, India";
     <span class="divider-line"></span>
   </div>
 
-  <!-- Names -->
+  <!-- Names + Parents -->
   <h1 class="names">
-    <span>{bride}</span>
+    <div class="name-col">
+      <span>{bride}</span>
+      <p class="parent-line"><em>daughter of</em> Anil &amp; Jayanti Rungta</p>
+    </div>
     <span class="ampersand">&amp;</span>
-    <span>{groom}</span>
+    <div class="name-col">
+      <span>{groom}</span>
+      <p class="parent-line"><em>son of</em> Mayur &amp; Bhavna Patel</p>
+    </div>
   </h1>
 
-
   <!-- Tagline -->
-  <p class="tagline">request the pleasure of your company</p>
+  <p class="tagline mt-6 mb-2">request the pleasure of your company</p>
   <p class="tagline italic">at the celebration of their marriage</p>
 
   <!-- Date & location -->
@@ -88,25 +93,46 @@ const weddingCity = "Ahmedabad, India";
     line-height: 1.1;
     color: #1a3a36;
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 0.3em;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .name-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .parent-line {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+    letter-spacing: 0.04em;
+    color: #1a3a36;
+    margin-top: 0.4em;
+  }
+
+  .parent-line em {
+    font-style: italic;
+    color: #3d8b85;
   }
 
   .ampersand {
     font-style: italic;
     color: #3d8b85;
     font-size: 0.8em;
+    padding-top: 0.05em;
+    line-height: 1.1;
   }
 
   .tagline {
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.95rem;
     letter-spacing: 0.05em;
-    color: #527a75;
-    margin-top: 0.5rem;
+    color: #2d5a54;
   }
 
   .small-caps {
