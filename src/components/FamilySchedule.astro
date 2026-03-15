@@ -1,26 +1,16 @@
 ---
 const days = [
   {
-    date: "April 24, 2026",
+    date: "April 21, 2026",
     label: "Day 1",
     events: [
       {
-        time: "10:30 AM",
-        title: "Haldi",
-        description: "A joyful ceremony where turmeric paste is applied to bless the couple with good health and radiance.",
+        time: "10:00 AM",
+        title: "Jhavera",
+        description: "A sacred pre-wedding ritual to seek blessings for the couple.",
+        location: "B-504, Parishkaar-2, Khokhra",
+        locationUrl: "https://maps.app.goo.gl/ybynyP8MRjAHkgts6",
         icon: "✦",
-      },
-      {
-        time: "6:00 PM",
-        title: "Engagement",
-        description: "The formal exchange of rings as Sakshi and Saurabh commit to their lifelong journey together.",
-        icon: "♥",
-      },
-      {
-        time: "7:00 PM",
-        title: "Sangeet",
-        description: "An evening of music, dance, and celebration with family and friends.",
-        icon: "♪",
       },
     ],
   },
@@ -29,16 +19,42 @@ const days = [
     label: "Day 2",
     events: [
       {
-        time: "6:00 PM",
-        title: "Baarat",
-        description: "The groom's procession arrives in celebration, welcomed by the bride's family.",
+        time: "8:00 AM",
+        title: "Gruh Shanti",
+        description: "A home prayer ceremony invoking peace and blessings before the wedding.",
+        location: "B-504, Parishkaar-2, Khokhra",
+        locationUrl: "https://maps.app.goo.gl/ybynyP8MRjAHkgts6",
+        icon: "✦",
+      },
+      {
+        time: "3:00 PM",
+        title: "Jan Prasthan",
+        description: "The groom's procession departs in celebration to the wedding venue.",
+        location: "B-504, Parishkaar-2, Khokhra",
+        locationUrl: "https://maps.app.goo.gl/ybynyP8MRjAHkgts6",
         icon: "✦",
       },
       {
         time: "7:00 PM",
-        title: "Wedding Ceremony",
-        description: "The sacred Hast Melap — the joining of hands and the exchange of vows under the mandap.",
+        title: "Hast Melap",
+        description: "The sacred joining of hands and exchange of vows under the mandap.",
+        location: "Hotel Pragati The Grand, Thaltej",
+        locationUrl: "https://maps.app.goo.gl/hSwpSPnZZsvMrYHy7",
         icon: "♥",
+      },
+    ],
+  },
+  {
+    date: "April 26, 2026",
+    label: "Day 3",
+    events: [
+      {
+        time: "7:00 PM",
+        title: "Reception",
+        description: "An evening of celebration as family and friends come together to bless the newlyweds.",
+        location: "Rasleela Party Plot-1, Kathwada",
+        locationUrl: "https://maps.app.goo.gl/RXEjxSXv5x4EF1Tv7",
+        icon: "♪",
       },
     ],
   },
@@ -49,7 +65,7 @@ const days = [
   <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" aria-hidden="true" class="logo-watermark" />
   <div class="max-w-2xl mx-auto">
     <!-- Section header -->
-    <div class="text-center mb-16">
+    <div class="section-header text-center mb-16">
       <p class="section-eyebrow">The Celebration</p>
       <h2 class="section-title">Schedule</h2>
       <div class="section-rule"></div>
@@ -74,6 +90,10 @@ const days = [
                   <p class="event-time">{event.time}</p>
                   <h3 class="event-title">{event.title}</h3>
                   <p class="event-desc">{event.description}</p>
+                  {event.locationUrl
+                    ? <a href={event.locationUrl} target="_blank" rel="noopener noreferrer" class="event-location event-location-link">📍 {event.location}</a>
+                    : <p class="event-location">📍 {event.location}</p>
+                  }
                 </div>
                 {i < day.events.length - 1 && <div class="timeline-connector" />}
               </li>
@@ -207,6 +227,25 @@ const days = [
     line-height: 1.6;
   }
 
+  .event-location {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: #3d8b85;
+    margin-top: 0.4rem;
+  }
+
+  .event-location-link {
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .event-location-link:hover {
+    color: #2e6e69;
+  }
+
   .logo-watermark {
     position: absolute;
     bottom: 2rem;
@@ -220,14 +259,22 @@ const days = [
   }
 
   @media print {
+    #schedule {
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+    .section-header {
+      margin-bottom: 1.5rem !important;
+    }
     .days-wrapper {
-      gap: 3rem;
+      gap: 2rem;
     }
     .day-header {
       margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
     }
     .timeline-body {
-      padding-bottom: 1rem;
+      padding-bottom: 0.75rem;
     }
   }
 </style>

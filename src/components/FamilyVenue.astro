@@ -1,0 +1,211 @@
+---
+const venues = [
+  {
+    label: "Jhavera · Gruh Shanti · Jan Prasthan",
+    name: "Parishkaar-2",
+    address: "B-504, Parishkaar-2, Khokhra",
+    city: "Ahmedabad, Gujarat 380026",
+    mapsUrl: "https://maps.app.goo.gl/ybynyP8MRjAHkgts6",
+    mapsEmbedSrc: null,
+  },
+  {
+    label: "Hast Melap · Wedding Ceremony",
+    name: "Hotel Pragati The Grand",
+    subtitle: "Near Zydus Hospital, Thaltej",
+    address: "Hebatpur Rd, Thaltej",
+    city: "Ahmedabad, Gujarat 380059",
+    mapsUrl: "https://maps.app.goo.gl/hSwpSPnZZsvMrYHy7",
+    mapsEmbedSrc: `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.5!2d72.5131277!3d23.0590913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9ca91b593fe5%3A0x9c1641919621a039!2sHOTEL%20PRAGATI%20THE%20GRAND!5e0!3m2!1sen!2sin!4v1741700000000`,
+  },
+  {
+    label: "Reception",
+    name: "Rasleela Party Plot-1",
+    address: "Opposite site road of Ras Raj Jackpot, Kathwada",
+    city: "Ahmedabad, Gujarat 382430",
+    mapsUrl: "https://maps.app.goo.gl/RXEjxSXv5x4EF1Tv7",
+    mapsEmbedSrc: null,
+  },
+];
+---
+
+<section id="venue" class="relative py-24 px-6" style="background: #f0faf8;">
+  <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" aria-hidden="true" class="logo-watermark" />
+  <div class="max-w-3xl mx-auto">
+    <!-- Section header -->
+    <div class="text-center mb-14">
+      <p class="section-eyebrow">Where to Find Us</p>
+      <h2 class="section-title">Venues</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="venues-list">
+      {venues.map((venue) => (
+        <div class="venue-block">
+          <p class="venue-events">{venue.label}</p>
+          <div class="venue-grid">
+            <div class="venue-info">
+              <h3 class="venue-name">{venue.name}</h3>
+              {venue.subtitle && <p class="venue-subtitle">{venue.subtitle}</p>}
+              {venue.address && (
+                <div class="venue-address">
+                  <p>{venue.address}</p>
+                  <p>{venue.city}</p>
+                </div>
+              )}
+              {venue.mapsUrl && (
+                <a href={venue.mapsUrl} target="_blank" rel="noopener noreferrer" class="directions-btn">
+                  Get Directions &rarr;
+                </a>
+              )}
+            </div>
+            {venue.mapsEmbedSrc && (
+              <div class="map-wrapper">
+                <iframe
+                  title={`${venue.name} map`}
+                  src={venue.mapsEmbedSrc}
+                  width="100%"
+                  height="100%"
+                  style="border:0;"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1a3a36;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: #1a3a36;
+  }
+
+  .section-rule {
+    width: 48px;
+    height: 1px;
+    background: #3d8b85;
+    margin: 1.25rem auto 0;
+  }
+
+  .venues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .venue-block {
+    border-top: 1px solid #c8e8e4;
+    padding-top: 2rem;
+  }
+
+  .venue-events {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3d8b85;
+    margin-bottom: 1.25rem;
+  }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .venue-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .venue-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #1a3a36;
+    line-height: 1.2;
+  }
+
+  .venue-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: #1a3a36;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .venue-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #456b66;
+    line-height: 1.7;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .directions-btn {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #3d8b85;
+    border: 1px solid #3d8b85;
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .directions-btn:hover {
+    background: #2e6e69;
+    border-color: #2e6e69;
+  }
+
+  .map-wrapper {
+    height: 320px;
+    border: 1px solid #c8e8e4;
+    overflow: hidden;
+  }
+
+  .logo-watermark {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>
