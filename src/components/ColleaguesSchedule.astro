@@ -1,0 +1,242 @@
+---
+const days = [
+  {
+    date: "April 25, 2026",
+    events: [
+      {
+        time: "6:00 PM",
+        title: "Baarat",
+        description: "The groom's procession arrives in celebration, welcomed by the bride's family.",
+        location: "Hotel Pragati The Grand, Thaltej",
+        locationUrl: "https://maps.app.goo.gl/hSwpSPnZZsvMrYHy7",
+        icon: "✦",
+      },
+      {
+        time: "7:00 PM",
+        title: "Wedding Ceremony",
+        description: "The sacred joining of hands and exchange of vows under the mandap.",
+        location: "Hotel Pragati The Grand, Thaltej",
+        locationUrl: "https://maps.app.goo.gl/hSwpSPnZZsvMrYHy7",
+        icon: "♥",
+      },
+    ],
+  },
+];
+---
+
+<section id="schedule" class="relative py-24 px-6" style="background: #f8fdfc;">
+  <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" aria-hidden="true" class="logo-watermark" />
+  <div class="max-w-2xl mx-auto">
+    <!-- Section header -->
+    <div class="section-header text-center mb-16">
+      <p class="section-eyebrow">The Celebration</p>
+      <h2 class="section-title">Schedule</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- Days -->
+    <div class="days-wrapper">
+      {days.map((day) => (
+        <div class="day-block">
+          <!-- Day header -->
+          <div class="day-header">
+            <span class="day-date">{day.date}</span>
+          </div>
+
+          <!-- Timeline -->
+          <ol class="timeline">
+            {day.events.map((event, i) => (
+              <li class="timeline-item">
+                <div class="timeline-icon">{event.icon}</div>
+                <div class="timeline-body">
+                  <p class="event-time">{event.time}</p>
+                  <h3 class="event-title">{event.title}</h3>
+                  <p class="event-desc">{event.description}</p>
+                  {event.locationUrl
+                    ? <a href={event.locationUrl} target="_blank" rel="noopener noreferrer" class="event-location event-location-link">📍 {event.location}</a>
+                    : <p class="event-location">📍 {event.location}</p>
+                  }
+                </div>
+                {i < day.events.length - 1 && <div class="timeline-connector" />}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1a3a36;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: #1a3a36;
+  }
+
+  .section-rule {
+    width: 48px;
+    height: 1px;
+    background: #3d8b85;
+    margin: 1.25rem auto 0;
+  }
+
+  .days-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .day-block {
+    position: relative;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #c8e8e4;
+  }
+
+  .day-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a3a36;
+  }
+
+  .day-date {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3d8b85;
+  }
+
+  .timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0 1.5rem;
+    position: relative;
+  }
+
+  .timeline-icon {
+    font-size: 0.9rem;
+    color: #3d8b85;
+    text-align: center;
+    padding-top: 0.15rem;
+    z-index: 1;
+  }
+
+  .timeline-body {
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-connector {
+    position: absolute;
+    left: 19px;
+    top: 1.5rem;
+    bottom: 0;
+    width: 1px;
+    background: #c8e8e4;
+  }
+
+  .event-time {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1a3a36;
+    margin-bottom: 0.25rem;
+  }
+
+  .event-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #1a3a36;
+    margin-bottom: 0.4rem;
+  }
+
+  .event-desc {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #527a75;
+    line-height: 1.6;
+  }
+
+  .event-location {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: #3d8b85;
+    margin-top: 0.4rem;
+  }
+
+  .event-location-link {
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .event-location-link:hover {
+    color: #2e6e69;
+  }
+
+  .logo-watermark {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  @media print {
+    #schedule {
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+    .section-header {
+      margin-bottom: 1.5rem !important;
+    }
+    .days-wrapper {
+      gap: 2rem;
+    }
+    .day-header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    .timeline-body {
+      padding-bottom: 0.75rem;
+    }
+  }
+</style>
